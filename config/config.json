@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": null,
+    "database": "database_development",
+    "host": "simple-store-ts.db",
+    "dialect": "sqlite"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "simple-store-ts.db",
+    "dialect": "sqlite"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "simple-store-ts.db",
+    "dialect": "sqlite"
+  }
+}

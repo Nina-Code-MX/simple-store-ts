@@ -1,0 +1,4 @@
+.env
+simple-store-ts.db
+
+node_modules/

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"name": "Simple Store in TypeScript",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.ts": "typescript"
+		},
+		"editor.wordWrap": "on"
+	}
+}
