@@ -84,7 +84,31 @@ tsc --version
 # Version 5.5.2
 ```
 
-# 2. Initialize the Project
+## 1.5. Install React
+
+React is a framework to serve the frontend of the application that interacts with the user.
+
+```bash
+npm install -g create-react-app
+create-react-app --version
+# 5.0.1
+```
+
+## 1.6. Install serve
+
+Server helps to provide a static web site.
+
+```bash
+npm install -g serve
+serve --version
+# 14.2.3
+```
+
+# 2. Initialize the Backend Project
+
+```bash
+cd backend/
+```
 
 ## 2.1. Install the project dependencies
 
@@ -96,10 +120,11 @@ tsc --version
 - jsonwebtoken; Is a modole to share token and credentials safelly between two parties
 - body-parser; Is a module that preformats the response body of a request
 - stripe; Is a NodeJS module to communicate via API to the stripe endpoints
+- cors; Is a NodeJS module to enable Cross-Origin Resource Sharing between applications
 
 ```bash
-npm install express sqlite3 sequelize dotenv bcryptjs jsonwebtoken body-parser stripe
-npm install --save-dev sequelize-cli typescript @types/express @types/node @types/bcryptjs @types/jsonwebtoken @types/body-parser
+npm install express sqlite3 sequelize dotenv bcryptjs jsonwebtoken body-parser stripe cors
+npm install --save-dev sequelize-cli typescript @types/express @types/node @types/bcryptjs @types/jsonwebtoken @types/body-parser @types/cors
 ```
 
 ## 2.2. Create and populate the .env file
@@ -114,7 +139,7 @@ Open the file and edit the values.
 
 ```ini
 # This is where the web port your app will be available.
-PORT=3000 
+PORT=3001
 
 # The file where your database will be stored
 #   NOTE: A side note, please try to not rename it, so we can avoid uploading into Github
@@ -131,11 +156,62 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 
 ## 2.3. Run the app and use
 
-
 ```bash
 npx sequelize-cli init
 npx sequelize-cli db:migrate
 tsc --init
 npx tsc
 node dist/server.js
+```
+
+# 3. Initialize the Frontend Project
+
+```bash
+cd frontend/
+```
+
+## 3.1. Install the project dependencies
+
+- axios; Create promisse based HTTP clients
+- dotenv; Loads environment variables from `.env` files
+- react-router-dom; Create Routes on Web Applications
+
+```bash
+npm install dotenv react-router-dom @types/react-router-dom
+npm install -D tailwindcss postcss autoprefixer
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+```
+
+## 3.2. Install TailwindCSS
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+
+## 3.3. Create and populate the .env file
+
+The `.env` file will be your localhsot configuration for the project, copy the `.env.example` and add the necessary values to the configuration.
+
+```bash
+cp .env.example .env
+```
+
+Open the file and edit the values.
+
+```ini
+# The Frontend URL
+REACT_APP_URL=http://localhost:3002
+
+# The Backend URL
+REACT_APP_API_URL=http://localhost:3001
+```
+
+## 3.3. Run the app and use
+
+```bash
+npm run build
+npm start
+or
+serve -s build -p 3002
 ```
